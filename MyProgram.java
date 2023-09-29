@@ -1540,9 +1540,307 @@ public class MyProgram {
                                     monsterStatus.get("currentHealth")
                                             - (numberStatus.get("currentDamage") * stats.get("potionStrengthModifier")));
                             System.out.println("you dealt " + numberStatus.get("currentDamage") + " damage");
+
+                            status.replace("move", "n");
                             
+                            if monsterStatus.get("currentHealth") < 1) {
+                                stats.replace("money", stats.get("money") + (1.0 * stats.get("moneyGain")));
+                                stats.replace("exp",
+                                    stats.get("exp") + ((1 * stats.get("expGain")) * stats.get("potionExpModifier")));
+                                stats.replace("untilNextLevel", stats.get("untilNextLevel")
+                                    - ((1 * stats.get("expGain")) * stats.get("potionExpModifier")));
+                                System.out.println("you won! You now have " + stats.get("exp") + " exp, " + stats.get("money")
+                                    + " money, and " + stats.get("untilNextLevel") + " exp until the next level");
+
+                                status.replace("fightingOrShoping", "n");
+                                stats.replace("potionExpModifier", 1.0);
+                                Thread.sleep(5000);
+                                monster.replace("frog", 0);
+                                clearScreen();
+                            }
+
+                        } else if (status.get("move").equals("i")) {
+
+                            System.out.println("choose your item, use i1 for item 1, i2 for item 2, and so on.");
+                            System.out.println("item 1: " + baggedItems.get("item1") + " item 2: "
+                                    + baggedItems.get("item2") + " item 3:" + baggedItems.get("item3") + " item 4: "
+                                    + baggedItems.get("item4") + " item 5: " + baggedItems.get("item5"));
+                            status.replace("usedPotion", scanner.nextLine());
+                            if (status.get("usedPotion").equals("i1")) {
+                                if (baggedItems.get("item1").equals("lesser healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 10.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item1", "n/a");
+                                    System.out.println("you used the lesser healing potion and gained 10 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item1").equals("healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 30.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item1", "n/a");
+                                    System.out.println("you used the healing potion and gained 30 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item1").equals("greater healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 50.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item1", "n/a");
+                                    System.out.println("you used the greater healing potion and gained 50 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+
+                                } else if (baggedItems.get("item1").equals("strength potion")) {
+                                    stats.replace("potionStrengthModifier", 2.0);
+                                    System.out.println("you used the strength potion, your next attack will be stronger");
+                                } else if (baggedItems.get("item1").equals("defense potion")) {
+                                    stats.replace("potionDefenseModifier", 2.0);
+                                    System.out.println(
+                                            "you used the defense potion, you will now take less damage on the next enemy turn");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item1").equals("exp potion")) {
+                                    stats.replace("potionExpModifier", 2.0);
+                                    System.out.println(
+                                            "you used the exp potion, you will gain more exp at the end of this battle.");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else {
+                                    System.out.println("there isn't any potion in this slot!");
+                                    Thread.sleep(3000);
+                                    clearScreen();
+                                }
+                                baggedItems.replace("item1", "n/a");
+                            } else if (status.get("usedPotion").equals("i2")) {
+                                if (baggedItems.get("item1").equals("lesser healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 10.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item2", "n/a");
+                                    System.out.println("you used the lesser healing potion and gained 10 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item2").equals("healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 30.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item2", "n/a");
+                                    System.out.println("you used the healing potion and gained 30 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item2").equals("greater healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 50.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item2", "n/a");
+                                    System.out.println("you used the greater healing potion and gained 50 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+
+                                } else if (baggedItems.get("item2").equals("strength potion")) {
+                                    stats.replace("potionStrengthModifier", 2.0);
+                                    System.out.println("you used the strength potion, your next attack will be stronger");
+                                } else if (baggedItems.get("item2").equals("defense potion")) {
+                                    stats.replace("potionDefenseModifier", 2.0);
+                                    System.out.println(
+                                            "you used the defense potion, you will now take less damage on the next enemy turn");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item2").equals("exp potion")) {
+                                    stats.replace("potionExpModifier", 2.0);
+                                    System.out.println(
+                                            "you used the exp potion, you will gain more exp at the end of this battle.");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else {
+                                    System.out.println("there isn't any potion in this slot!");
+                                    Thread.sleep(3000);
+                                    clearScreen();
+                                }
+
+                                baggedItems.replace("item2", "n/a");
+
+                            } else if (status.get("usedPotion").equals("i3")) {
+                                if (baggedItems.get("item1").equals("lesser healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 10.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item3", "n/a");
+                                    System.out.println("you used the lesser healing potion and gained 10 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item3").equals("healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 30.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item3", "n/a");
+                                    System.out.println("you used the healing potion and gained 30 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item3").equals("greater healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 50.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item3", "n/a");
+                                    System.out.println("you used the greater healing potion and gained 50 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+
+                                } else if (baggedItems.get("item3").equals("strength potion")) {
+                                    stats.replace("potionStrengthModifier", 2.0);
+                                    System.out.println("you used the strength potion, your next attack will be stronger");
+                                } else if (baggedItems.get("item3").equals("defense potion")) {
+                                    stats.replace("potionDefenseModifier", 2.0);
+                                    System.out.println(
+                                            "you used the defense potion, you will now take less damage on the next enemy turn");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item3").equals("exp potion")) {
+                                    stats.replace("potionExpModifier", 2.0);
+                                    System.out.println(
+                                            "you used the exp potion, you will gain more exp at the end of this battle.");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else {
+                                    System.out.println("there isn't any potion in this slot!");
+                                    Thread.sleep(3000);
+                                    clearScreen();
+                                }
+                                baggedItems.replace("item3", "n/a");
+
+                            } else if (status.get("usedPotion").equals("i4")) {
+                                if (baggedItems.get("item4").equals("lesser healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 10.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item4", "n/a");
+                                    System.out.println("you used the lesser healing potion and gained 10 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item4").equals("healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 30.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item4", "n/a");
+                                    System.out.println("you used the healing potion and gained 30 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item4").equals("greater healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 50.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item4", "n/a");
+                                    System.out.println("you used the greater healing potion and gained 50 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+
+                                } else if (baggedItems.get("item4").equals("strength potion")) {
+                                    stats.replace("potionStrengthModifier", 2.0);
+                                    System.out.println("you used the strength potion, your next attack will be stronger");
+                                } else if (baggedItems.get("item4").equals("defense potion")) {
+                                    stats.replace("potionDefenseModifier", 2.0);
+                                    System.out.println(
+                                            "you used the defense potion, you will now take less damage on the next enemy turn");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item4").equals("exp potion")) {
+                                    stats.replace("potionExpModifier", 2.0);
+                                    System.out.println(
+                                            "you used the exp potion, you will gain more exp at the end of this battle.");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else {
+                                    System.out.println("there isn't any potion in this slot!");
+                                    Thread.sleep(3000);
+                                    clearScreen();
+                                }
+                                baggedItems.replace("item4", "n/a");
+
+                            } else if (status.get("usedPotion").equals("i5")) {
+                                if (baggedItems.get("item5").equals("lesser healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 10.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item5", "n/a");
+                                    System.out.println("you used the lesser healing potion and gained 10 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item5").equals("healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 30.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item5", "n/a");
+                                    System.out.println("you used the healing potion and gained 30 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item5").equals("greater healing potion")) {
+                                    numberStatus.replace("currentHealth", numberStatus.get("currentHealth") + 50.0);
+                                    while (numberStatus.get("currentHealth") > stats.get("maxHealth")) {
+                                        numberStatus.replace("currentHealth", numberStatus.get("currentHealth") - 1.0);
+                                    }
+                                    baggedItems.replace("item5", "n/a");
+                                    System.out.println("you used the greater healing potion and gained 50 hp, you have "
+                                            + numberStatus.get("currentHealth") + " hp");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+
+                                } else if (baggedItems.get("item5").equals("strength potion")) {
+                                    stats.replace("potionStrengthModifier", 2.0);
+                                    System.out.println("you used the strength potion, your next attack will be stronger");
+                                } else if (baggedItems.get("item5").equals("defense potion")) {
+                                    stats.replace("potionDefenseModifier", 2.0);
+                                    System.out.println(
+                                            "you used the defense potion, you will now take less damage on the next enemy turn");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else if (baggedItems.get("item5").equals("exp potion")) {
+                                    stats.replace("potionExpModifier", 2.0);
+                                    System.out.println(
+                                            "you used the exp potion, you will gain more exp at the end of this battle.");
+                                    Thread.sleep(5000);
+                                    clearScreen();
+                                } else {
+                                    System.out.println("there isn't any potion in this slot!");
+                                    Thread.sleep(3000);
+                                    clearScreen();
+                                }
+                                baggedItems.replace("item5", "n/a");
+
+                            }
 
                         }
+
+                        
 
 
 
