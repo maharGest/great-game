@@ -112,9 +112,10 @@ public class MyProgram {
 
             System.out.println("enter f to fight or s to shop, in the fight, you can use i for item and a for attack");
             status.put("fightingOrShoping", scanner.nextLine());
-            Thread.sleep(5000);
+            Thread.sleep(1000);
 
             while (status.get("fightingOrShoping").equals("s")) {
+                clearScreen();
                 System.out.println(
                         "type the option given for the potion you want. Example: If i wanted the lesser health potion, I would type lh");
                 System.out.println(
@@ -176,6 +177,7 @@ public class MyProgram {
                     Thread.sleep(5000);
                     clearScreen();
                     }
+                }
                 if (baggedItems.get("potionChoice").equals("h")) {
                     // Heads up, the ! turns the .equals into a .doesnotequal
                     if (stats.get("money") < 30.0) {
@@ -970,7 +972,7 @@ public class MyProgram {
         }
     }
                 }
-            }
+            
             }
 }   
     }
