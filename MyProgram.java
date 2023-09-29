@@ -1,7 +1,7 @@
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeMap;
-import java.util.Random;
 
 public class MyProgram {
     public static void main(String[] args) throws InterruptedException {
@@ -44,6 +44,10 @@ public class MyProgram {
         monster.put("fly", 0);
         monster.put("spider", 0);
         monster.put("moth", 0);
+        
+        monster.put("frog", 0);
+        monster.put("duck", 0);
+        monster.put("squirrel", 0);
 
         Map<String, Double> monsterStats = new TreeMap();
 
@@ -447,7 +451,7 @@ public class MyProgram {
             
             while (status.get("fightingOrShoping").equals("f")) {
 
-                if (stats.get("level") < 10.0) {
+                if (stats.get("level") < 6.0) {
                     monster.replace("fly", NumberPicker.nextInt(4));
                     monster.replace("moth", NumberPicker.nextInt(4));
                     monster.replace("spider", NumberPicker.nextInt(4));
@@ -461,6 +465,8 @@ public class MyProgram {
                     while (monster.get("spider").equals("fly")) {
                         monster.replace("Fly", NumberPicker.nextInt(4));
                     }
+                } else if (stats.get("level") < 12.0) {
+                    
                 }
 
                 clearScreen();
