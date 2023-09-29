@@ -32,6 +32,7 @@ public class MyProgram {
         status.put("move", "n/a");
         status.put("gameStarted", "n");
         status.put("usedPotion", "n");
+        status.put("enoughMoney", "y");
 
         Map<String, Double> numberStatus = new TreeMap();
 
@@ -126,6 +127,13 @@ public class MyProgram {
 
                 if (baggedItems.get("potionChoice").equals("lh")) {
                     // Heads up, the ! turns the .equals into a .doesnotequal
+                    if (stats.get("money") < 10.0) {
+                        System.out.println("you don't have enough money for this item, try again");
+                        Thread.sleep(5000);
+                        clearScreen();
+                        status.replace("enoughMoney", "n");
+                    }
+                    if (status.get("enoughMoney").equals("y")) {
                     if (!baggedItems.get("item1").equals("n/a")) {
                         if (!baggedItems.get("item2").equals("n/a")) {
                             if (!baggedItems.get("item3").equals("n/a")) {
@@ -167,9 +175,16 @@ public class MyProgram {
                     status.replace("fightingOrShoping", scanner.nextLine());
                     Thread.sleep(5000);
                     clearScreen();
-                }
+                    }
                 if (baggedItems.get("potionChoice").equals("h")) {
                     // Heads up, the ! turns the .equals into a .doesnotequal
+                    if (stats.get("money") < 30.0) {
+                        System.out.println("you don't have enough money for this item, try again");
+                        Thread.sleep(5000);
+                        clearScreen();
+                        status.replace("enoughMoney", "n");
+                    }
+                    if (status.get("enoughMoney").equals("y")) {
                     if (!baggedItems.get("item1").equals("n/a")) {
                         if (!baggedItems.get("item2").equals("n/a")) {
                             if (!baggedItems.get("item3").equals("n/a")) {
@@ -215,6 +230,13 @@ public class MyProgram {
 
                 if (baggedItems.get("potionChoice").equals("gh")) {
                     // Heads up, the ! turns the .equals into a .doesnotequal
+                    if (stats.get("money") < 50.0) {
+                        System.out.println("you don't have enough money for this item, try again");
+                        Thread.sleep(5000);
+                        clearScreen();
+                        status.replace("enoughMoney", "n");
+                    }
+                    if (status.get("enoughMoney").equals("y")) {
                     if (!baggedItems.get("item1").equals("n/a")) {
                         if (!baggedItems.get("item2").equals("n/a")) {
                             if (!baggedItems.get("item3").equals("n/a")) {
@@ -259,7 +281,14 @@ public class MyProgram {
                 }
 
                 if (baggedItems.get("potionChoice").equals("sp")) {
-                    // Heads up, the ! turns the .equals into a .doesnotequal
+                    // Heads up, the ! turns the .equals into a .doesnotequal\
+                    if (stats.get("money") < 50.0) {
+                        System.out.println("you don't have enough money for this item, try again");
+                        Thread.sleep(5000);
+                        clearScreen();
+                        status.replace("enoughMoney", "n");
+                    }
+                    if (status.get("enoughMoney").equals("y")) {
                     if (!baggedItems.get("item1").equals("n/a")) {
                         if (!baggedItems.get("item2").equals("n/a")) {
                             if (!baggedItems.get("item3").equals("n/a")) {
@@ -305,6 +334,13 @@ public class MyProgram {
 
                 if (baggedItems.get("potionChoice").equals("dp")) {
                     // Heads up, the ! turns the .equals into a .doesnotequal
+                    if (stats.get("money") < 50.0) {
+                        System.out.println("you don't have enough money for this item, try again");
+                        Thread.sleep(5000);
+                        clearScreen();
+                        status.replace("enoughMoney", "n");
+                    }
+                    if (status.get("enoughMoney").equals("y")) {
                     if (!baggedItems.get("item1").equals("n/a")) {
                         if (!baggedItems.get("item2").equals("n/a")) {
                             if (!baggedItems.get("item3").equals("n/a")) {
@@ -350,6 +386,13 @@ public class MyProgram {
 
                 if (baggedItems.get("potionChoice").equals("ep")) {
                     // Heads up, the ! turns the .equals into a .doesnotequal
+                    if (stats.get("money") < 100.0) {
+                        System.out.println("you don't have enough money for this item, try again");
+                        Thread.sleep(5000);
+                        clearScreen();
+                        status.replace("enoughMoney", "n");
+                    }
+                    if (status.get("enoughMoney").equals("y")) {
                     if (!baggedItems.get("item1").equals("n/a")) {
                         if (!baggedItems.get("item2").equals("n/a")) {
                             if (!baggedItems.get("item3").equals("n/a")) {
@@ -398,7 +441,8 @@ public class MyProgram {
                     clearScreen();
                 }
             }
-
+            }
+            
             while (status.get("fightingOrShoping").equals("f")) {
 
                 if (stats.get("level") < 10.0) {
@@ -736,6 +780,7 @@ public class MyProgram {
                         }
 
                     }
+                
                     if (status.get("fightingOrShoping").equals("f")) {
                         System.out.println("monster's turn");
                         monsterStatus.replace("currentEnemyDamage", monsterStats.get("spiderDamage"));
@@ -923,6 +968,7 @@ public class MyProgram {
             }
 
         }
+    }
     }
 
     public static void clearScreen() {
