@@ -1543,7 +1543,7 @@ public class MyProgram {
 
                             status.replace("move", "n");
                             
-                            if monsterStatus.get("currentHealth") < 1) {
+                            if (monsterStatus.get("currentHealth") < 1) {
                                 stats.replace("money", stats.get("money") + (1.0 * stats.get("moneyGain")));
                                 stats.replace("exp",
                                     stats.get("exp") + ((1 * stats.get("expGain")) * stats.get("potionExpModifier")));
