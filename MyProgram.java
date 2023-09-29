@@ -969,6 +969,10 @@ public class MyProgram {
 
         }
     }
+                }
+            }
+            }
+}   
     }
 
     public static void clearScreen() {
