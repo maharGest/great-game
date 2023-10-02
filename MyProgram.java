@@ -1544,11 +1544,11 @@ public class MyProgram {
                             status.replace("move", "n");
                             
                             if (monsterStatus.get("currentHealth") < 1) {
-                                stats.replace("money", stats.get("money") + (1.0 * stats.get("moneyGain")));
+                                stats.replace("money", stats.get("money") + (4.0 * stats.get("moneyGain")));
                                 stats.replace("exp",
-                                    stats.get("exp") + ((1 * stats.get("expGain")) * stats.get("potionExpModifier")));
+                                    stats.get("exp") + ((4 * stats.get("expGain")) * stats.get("potionExpModifier")));
                                 stats.replace("untilNextLevel", stats.get("untilNextLevel")
-                                    - ((1 * stats.get("expGain")) * stats.get("potionExpModifier")));
+                                    - ((4 * stats.get("expGain")) * stats.get("potionExpModifier")));
                                 System.out.println("you won! You now have " + stats.get("exp") + " exp, " + stats.get("money")
                                     + " money, and " + stats.get("untilNextLevel") + " exp until the next level");
 
@@ -1839,12 +1839,39 @@ public class MyProgram {
                             }
 
                         }
+                        if (status.get("fightingOrShoping").equals("f")) {
 
+                            System.out.println("monster's turn");
+                            monsterStatus.replace("currentEnemyDamage", monsterStats.get("frogDamage"));
+                            numberStatus.replace("currentHealth",
+                                    numberStatus.get("currentHealth")
+                                            - (monsterStats.get("frogDamage") / stats.get("potionDefenseModifier")));
+                            stats.replace("potionDefenseModifier", 1.0);
+                            System.out.println("you took " + monsterStatus.get("currentEnemyDamage") + "damage, you have "
+                                    + numberStatus.get("currentHealth") + " HP");
+
+                            if (numberStatus.get("currentHealth") < 1.0) {
+                                System.out.println(
+                                        "game over, if you continue, you will keep your level but your exp, money, and items will be removed");
+                                Thread.sleep(8000);
+                                stats.replace("exp", 0.0);
+                                stats.replace("money", 0.0);
+                                monsterStatus.replace("currentEnemyDamage", 0.0);
+                                numberStatus.replace("currentHealth", stats.get("maxHealth"));
+                                monster.replace("moth", 0);
+                                Thread.sleep(2000);
+
+                            }
+                        }
                         
-
-
-
-
+                    }
+                    while (monster.get("duck").equals(1)) {
+                        monsterStatus.replace("currentHealth", monsterStats.get("duckHealth"));
+                        System.out.println("your move (f or i)");
+                        status.replace("move", scanner.nextLine());
+                        if (status.get("move").equals("f")) {
+                            
+                        }
                     }
                 
                 }
