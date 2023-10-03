@@ -1870,8 +1870,30 @@ public class MyProgram {
                         System.out.println("your move (f or i)");
                         status.replace("move", scanner.nextLine());
                         if (status.get("move").equals("f")) {
-                            
-                        }
+                            numberStatus.replace("currentDamage", (stats.get("strengthLevel") + NumberPicker.nextInt(3)));
+
+                            monsterStatus.replace("currentHealth",
+                                    monsterStatus.get("currentHealth")
+                                            - (numberStatus.get("currentDamage") * stats.get("potionStrengthModifier")));
+
+                            System.out.println("you dealt " + numberStatus.get("currentDamage") + " damage");
+
+                            if (monsterStatus.get("currentHealth") < 1) {
+                                stats.replace("money", stats.get("money") + (1.0 * stats.get("moneyGain")));
+                                stats.replace("exp",
+                                    stats.get("exp") + ((1 * stats.get("expGain")) * stats.get("potionExpModifier")));
+                                stats.replace("untilNextLevel", stats.get("untilNextLevel")
+                                    - ((1 * stats.get("expGain")) * stats.get("potionExpModifier")));
+                                System.out.println("you won! You now have " + stats.get("exp") + " exp, " + stats.get("money")
+                                    + " money, and " + stats.get("untilNextLevel") + " exp until the next level");
+
+                                status.replace("fightingOrShoping", "n");
+                                stats.replace("potionExpModifier", 1.0);
+                                Thread.sleep(5000);
+                                monster.replace("moth", 0);
+                                clearScreen();
+                            }
+                        } else if
                     }
                 
                 }
